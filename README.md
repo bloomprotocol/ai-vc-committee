@@ -13,7 +13,7 @@ A free, open-source AI skill that simulates a **4-role venture capital investmen
                      │                         │
                      ▼                         │
   ╔══════════════════════════════════════╗      │
-  ║          MODE 1: PITCH               ║      │
+  ║  MODE 1: STRUCTURE YOUR PITCH        ║      │
   ║                                      ║      │
   ║  Step 1 ─ Structured Pitch           ║      │
   ║  ┌────────────────────────────────┐  ║      │
