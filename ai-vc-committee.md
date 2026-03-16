@@ -360,32 +360,62 @@ Run 3 parallel searches. Extract the most relevant insights and inject them as "
 **Search 1 — Investment Theses & Frameworks (what top VCs look for right now)**
 
 Sources (prioritize content from the last 30 days, fall back to 90 days):
+
+*Tier 1 — Multi-stage funds with active blogs:*
 - a16z.com/blog — investment memos, market maps, "big ideas" annual list
 - sequoia.com/article — Arc, perspective pieces, market frameworks
 - benchmark.com — partner perspectives (Bill Gurley, Sarah Tavel)
+- greylock.com/blog — enterprise & AI investment theses (Reid Hoffman, Jerry Chen)
+- lightspeedvp.com/perspectives — AI infrastructure, consumer AI, enterprise AI
+- indexventures.com/perspectives — European AI ecosystem, global scaling patterns
+- generalcatalyst.com/perspectives — Hemant Taneja on responsible innovation & AI
+
+*AI-focused funds:*
+- conviction.com — Sarah Guo's AI-first fund, application-layer AI theses
+- radical.vc — AI-only fund (Jordan Jacobs), deep tech AI frameworks
+- felicis.com/blog — Aydin Senkut, consumer AI + vertical AI
+
+*Solo GPs & thought leaders:*
+- blog.eladgil.com — Elad Gil on AI infrastructure, scaling, late-stage dynamics
+- paulgraham.com — timeless startup frameworks (most cited essays in VC)
 - usv.com/writing — Fred Wilson's daily posts, thesis updates
-- greylock.com/blog — enterprise & AI investment theses
-- fellexfund.com — Elad Gil's frameworks on AI infrastructure
+- ben-evans.com — Benedict Evans annual tech trends, AI market sizing
 - notboring.co — Packy McCormick's deep dives (popular for trend framing)
+- abovethecrowd.com — Bill Gurley's "Above the Crowd" on marketplaces & unit economics
+- luxcapital.com/letters — Josh Wolfe's quarterly letters, "narrative violations", deep tech + AI
+- tomtunguz.com — Tomasz Tunguz data-driven SaaS + AI analysis
 
 Search queries:
 - `"investment thesis" OR "why we invested" site:{source} {relevant_sector}`
-- `"what we look for" startup 2026`
+- `"what we look for" AI startup 2026`
+- `"consumer AI" OR "AI application layer" investment`
 
 **Search 2 — Podcasts, Interviews & Newsletters (what VCs are saying out loud)**
 
 Sources:
+
+*Podcasts:*
+- No Priors (nopriorspod.com) — Sarah Guo + Elad Gil, THE AI VC podcast, weekly deep dives on AI companies and trends
 - 20VC (thetwentyminutevc.com) — Harry Stebbings interviews top GPs weekly
-- Acquired podcast (acquired.fm) — deep-dive company histories, LP/GP perspectives
+- Acquired (acquired.fm) — deep-dive company histories, LP/GP perspectives
 - Lenny's Podcast (lennyspodcast.com) — product-market fit, growth frameworks
-- The All-In Podcast summaries — macro trends, contrarian VC takes
-- Stratechery (stratechery.com) — Ben Thompson on market structure & platform dynamics
+- The All-In Podcast — macro trends, contrarian VC takes (Sacks, Calacanis, Chamath, Friedberg)
+- BG2Pod — Bill Gurley + Brad Gerstner on markets, AI, and company building
+- This Week in Startups — Jason Calacanis, 1100+ episodes, startup funding news
+- Equity (TechCrunch) — startup funding rounds, twice weekly
+
+*Newsletters & analysis:*
+- Stratechery (stratechery.com) — Ben Thompson on market structure, AI platform dynamics, aggregation theory
 - The Generalist (generalist.com) — long-form company & trend analysis
 - Newcomer (newcomer.co) — VC industry news, fund raises, LP sentiment
+- SaaStr (saastr.com) — Jason Lemkin, SaaS metrics & ARR benchmarks
+- First Round Review (review.firstround.com) — tactical startup advice from operators
+- The VC Corner (thevccorner.com) — weekly VC trend roundups, AI moat analysis
 
 Search queries:
 - `"{project_sector}" podcast OR interview VC 2026`
-- `"AI startup" OR "market timing" OR "defensibility" site:{source}`
+- `"AI startup" OR "consumer AI" OR "defensibility" site:{source}`
+- `"AI moat" OR "AI application" {relevant_sector} 2026`
 
 **Search 3 — Market Data & Contrarian Signals (what the data says vs. what VCs say)**
 
@@ -393,13 +423,16 @@ Sources:
 - CB Insights (cbinsights.com) — funding rounds, sector heatmaps, "State of Venture" reports
 - PitchBook (pitchbook.com/news) — deal flow data, valuation trends
 - Crunchbase News (news.crunchbase.com) — funding announcements, sector trends
+- AI Funding Tracker (aifundingtracker.com) — real-time AI deal tracking, round data
 - NFX (nfx.com/post) — network effects frameworks, defensibility essays
 - Bessemer Venture Partners (bvp.com/atlas) — cloud index, market benchmarks
-- a16z State of AI / Crypto reports — sector-specific data
+- a16z State of AI reports — AI sector-specific data, model cost curves, adoption metrics
+- Forerunner Ventures (forerunnerventures.com/our-perspectives) — consumer behavior data, spending trends
 
 Search queries:
 - `"{project_sector}" funding OR valuation 2026`
 - `"market size" OR "TAM" {relevant_market} report`
+- `"AI funding" OR "AI round" {relevant_sector} 2026 site:cbinsights.com OR site:pitchbook.com`
 
 **What to extract from each search:**
 
