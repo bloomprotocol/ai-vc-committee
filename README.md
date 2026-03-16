@@ -1,6 +1,6 @@
 # AI VC Committee
 
-A free, open-source AI skill that simulates a **4-role venture capital investment committee** plus a Managing Partner. Stress-test your startup pitch, evaluate any project's viability, or run structured due diligence — without needing access to real VCs.
+A free, open-source AI skill that simulates a **full VC investment committee** — the same process real venture capital firms run internally before writing a check. Four analysts evaluate independently, then a Managing Partner makes the final call. Stress-test your startup pitch, evaluate any project's viability, or run structured due diligence — without needing access to real VCs.
 
 ## Structure
 
