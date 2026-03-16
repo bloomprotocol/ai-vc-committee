@@ -5,126 +5,162 @@ A free, open-source AI skill that simulates a **4-role venture capital investmen
 ## Structure
 
 ```
-                         USER INPUT
-                             │
-                    ┌────────┴────────┐
-                    ▼                 ▼
-              "I have an idea"   "Evaluate X"
-                    │                 │
-                    ▼                 │
-            ┌─ MODE 1: PITCH ─┐      │
-            │                  │      │
-            │  Step 1          │      │
-            │  Structured Pitch│      │
-            │  ┌────────────┐  │      │
-            │  │ Problem     │  │      │
-            │  │ Solution    │  │      │
-            │  │ Market      │  │      │
-            │  │ Traction    │  │      │
-            │  │ Stage       │  │      │
-            │  └────────────┘  │      │
-            │                  │      │
-            │  Step 2          │      │
-            │  Narrative       │      │
-            │  Setting         │      │
-            │                  │      │
-            │   TREND           │      │
-            │   (External)      │      │
-            │      / \          │      │
-            │     / ● \         │      │
-            │    /     \        │      │
-            │  EDGE   NEED     │      │
-            │  (Int)  (Cust)   │      │
-            │                  │      │
-            │  "Ready for the  │      │
-            │   committee?"    │      │
-            └────────┬─────────┘      │
-                     │                │
-                     ▼                ▼
-        ┌──── MODE 2: EVALUATE ────────────┐
-        │                                   │
-        │  ┌─────────── SEARCH ──────────┐  │
-        │  │ 18 VC blogs & theses        │  │
-        │  │ 14 podcasts & newsletters   │  │
-        │  │  8 market data sources      │  │
-        │  │  → Current Market Context   │  │
-        │  └─────────────────────────────┘  │
-        │                                   │
-        │  Step 1        Step 2             │
-        │  ┌──────────┐  ┌──────────────┐   │
-        │  │ MARKET   │  │ PRODUCT      │   │
-        │  │ ANALYST  │  │ CRITIC       │   │
-        │  │          │  │              │   │
-        │  │ TAM/SAM/ │  │ Tech assess- │   │
-        │  │ SOM table│  │ ment table   │   │
-        │  │ Competi- │  │ Feasibility  │   │
-        │  │ tive map │  │ UX friction  │   │
-        │  └──────────┘  └──────────────┘   │
-        │                                   │
-        │  Step 3        Step 4             │
-        │  ┌──────────┐  ┌──────────────┐   │
-        │  │ GROWTH   │  │ RISK         │   │
-        │  │ STRATEGST│  │ AUDITOR      │   │
-        │  │          │  │              │   │
-        │  │ Channels │  │ Risk matrix  │   │
-        │  │ Retention│  │ Fatal assump │   │
-        │  │ Day 1→90 │  │ Kill scenaro │   │
-        │  └──────────┘  └──────────────┘   │
-        │                                   │
-        │  ┌─ Step 5 ─────────────────────┐ │
-        │  │ MANAGING PARTNER              │ │
-        │  │                               │ │
-        │  │ Market Conviction (Why Now)   │ │
-        │  │ Moat Assessment (Strengthen?) │ │
-        │  │ Durable Growth (10yr View)    │ │
-        │  │                               │ │
-        │  │ Pattern Match: "{Company, Yr}"│ │
-        │  │  1. Similarity               │ │
-        │  │  2. Similarity               │ │
-        │  │  3. Similarity               │ │
-        │  │  Key difference: ...         │ │
-        │  └──────────────────────────────┘ │
-        │                                   │
-        │  Step 6 ─── FINAL CONSENSUS       │
-        │  ┌──────────────────────────────┐ │
-        │  │ Role     │ Verdict │ Confid. │ │
-        │  │ Market   │ Support │  XX     │ │
-        │  │ Product  │ Against │  XX     │ │
-        │  │ Growth   │ Support │  XX     │ │
-        │  │ Risk     │ Against │  XX     │ │
-        │  │ MP       │ Fund    │  XX     │ │
-        │  │                              │ │
-        │  │ Score: XX/100                │ │
-        │  │ One-Line Verdict: "..."      │ │
-        │  └──────────────────────────────┘ │
-        │                                   │
-        │  Step 7 ─── GAP ANALYSIS          │
-        │  ┌──────────────────────────────┐ │
-        │  │ What's Working               │ │
-        │  │ What's Missing (table)       │ │
-        │  │ Core Strategic Question      │ │
-        │  │ 30-Day Challenge             │ │
-        │  │ Score Movement: XX → XX/100  │ │
-        │  └──────────────────────────────┘ │
-        │                                   │
-        └───────────────┬───────────────────┘
-                        │
-                        ▼
-              ┌─ DYNAMIC HOOK ──────────┐
-              │                         │
-              │  Query Bloom Protocol   │
-              │  API for project status │
-              │         │               │
-              │  ┌──────┼──────┐        │
-              │  ▼      ▼      ▼        │
-              │ Found  New    No ID     │
-              │ w/evals first  yet      │
-              │  │      │      │        │
-              │  ▼      ▼      ▼        │
-              │ Compare Be 1st Create   │
-              │ scores  eval   identity │
-              │ → Raise tribe ←         │
-              └─────────────────────────┘
+                              USER INPUT
+                                  │
+                     ┌────────────┴────────────┐
+                     ▼                         ▼
+               "I have an idea"          "Evaluate X"
+                     │                         │
+                     ▼                         │
+  ╔══════════════════════════════════════╗      │
+  ║          MODE 1: PITCH               ║      │
+  ║                                      ║      │
+  ║  Step 1 ─ Structured Pitch           ║      │
+  ║  ┌────────────────────────────────┐  ║      │
+  ║  │ Project    One-liner           │  ║      │
+  ║  │ Problem    Solution            │  ║      │
+  ║  │ Market     Traction     Stage  │  ║      │
+  ║  └────────────────────────────────┘  ║      │
+  ║                                      ║      │
+  ║  Step 2 ─ Narrative Setting          ║      │
+  ║  Find the intersection of 3 forces:  ║      │
+  ║                                      ║      │
+  ║            TREND                     ║      │
+  ║        "Why now? Which                ║      │
+  ║         wave are we on?"             ║      │
+  ║              ╱╲                      ║      │
+  ║             ╱  ╲                     ║      │
+  ║            ╱    ╲                    ║      │
+  ║           ╱  YOUR ╲                  ║      │
+  ║          ╱ NARRATIVE╲                ║      │
+  ║         ╱  ▪ Hook    ╲               ║      │
+  ║        ╱  ▪ Core Story╲              ║      │
+  ║       ╱  ▪ Mission     ╲             ║      │
+  ║      ╱  ▪ Worldview     ╲            ║      │
+  ║     ╱────────────────────╲           ║      │
+  ║   EDGE                  NEED         ║      │
+  ║  "What can you         "How bad      ║      │
+  ║   do that others        does it      ║      │
+  ║   can't?"               hurt?"       ║      │
+  ║                                      ║      │
+  ║  "Ready for the VC committee?" ──────╬──┐   │
+  ╚══════════════════════════════════════╝  │   │
+                                            ▼   ▼
+  ╔═══════════════════════════════════════════════════╗
+  ║                MODE 2: EVALUATE                    ║
+  ║                                                    ║
+  ║  ┌──────────── RESEARCH DESK ───────────────────┐  ║
+  ║  │  Web search across 40 sources:               │  ║
+  ║  │  18 VC blogs ─ 14 podcasts ─ 8 data sources  │  ║
+  ║  │  → Sector sentiment, recent deals, new       │  ║
+  ║  │    theses, contrarian signals                 │  ║
+  ║  └──────────────────┬──────────────────────────┘  ║
+  ║                     │ briefing packet              ║
+  ║                     ▼                              ║
+  ║  ┌─────────── ANALYST ROOM ─────────────────────┐  ║
+  ║  │                                               │  ║
+  ║  │  Each analyst works independently, then       │  ║
+  ║  │  presents their verdict to the committee.     │  ║
+  ║  │  At least one must dissent.                   │  ║
+  ║  │                                               │  ║
+  ║  │   ┌─────────────┐       ┌─────────────┐      │  ║
+  ║  │   │ 📊 MARKET   │       │ 🔍 PRODUCT  │      │  ║
+  ║  │   │    ANALYST   │       │    CRITIC   │      │  ║
+  ║  │   │             │       │             │      │  ║
+  ║  │   │ TAM/SAM/SOM │       │ Tech status │      │  ║
+  ║  │   │ Competitors │       │ Feasibility │      │  ║
+  ║  │   │ Timing      │       │ UX friction │      │  ║
+  ║  │   │             │       │             │      │  ║
+  ║  │   │ Verdict: ?  │       │ Verdict: ?  │      │  ║
+  ║  │   │ Contrarian  │       │ Contrarian  │      │  ║
+  ║  │   │ Take: "..."│       │ Take: "..."│      │  ║
+  ║  │   └──────┬──────┘       └──────┬──────┘      │  ║
+  ║  │          │                     │              │  ║
+  ║  │   ┌─────────────┐       ┌─────────────┐      │  ║
+  ║  │   │ 📈 GROWTH   │       │ ⚠️  RISK    │      │  ║
+  ║  │   │  STRATEGIST │       │    AUDITOR  │      │  ║
+  ║  │   │             │       │  (strictest) │      │  ║
+  ║  │   │ Channels    │       │ Risk matrix │      │  ║
+  ║  │   │ Retention   │       │ Fatal flaw  │      │  ║
+  ║  │   │ Day 1 → 90 │       │ Kill scene  │      │  ║
+  ║  │   │             │       │             │      │  ║
+  ║  │   │ Verdict: ?  │       │ Verdict: ?  │      │  ║
+  ║  │   │ Contrarian  │       │ What Would  │      │  ║
+  ║  │   │ Take: "..."│       │ Change Mind │      │  ║
+  ║  │   └──────┬──────┘       └──────┬──────┘      │  ║
+  ║  │          │                     │              │  ║
+  ║  └──────────┴─────────┬───────────┘──────────────┘  ║
+  ║                       │                             ║
+  ║           4 memos land on the MP's desk             ║
+  ║                       │                             ║
+  ║                       ▼                             ║
+  ║  ┌─────────── MP'S OFFICE ──────────────────────┐  ║
+  ║  │                                               │  ║
+  ║  │  MANAGING PARTNER                             │  ║
+  ║  │  "I've seen 1,000+ pitches."                  │  ║
+  ║  │                                               │  ║
+  ║  │  Reviews analyst memos + live market context.  │  ║
+  ║  │  Judges on pattern recognition, not data.     │  ║
+  ║  │                                               │  ║
+  ║  │  ┌─ 3 Dimensions ──────────────────────────┐  │  ║
+  ║  │  │ 1. Market Conviction — Why now?         │  │  ║
+  ║  │  │ 2. Moat Assessment  — Strengthen/erode? │  │  ║
+  ║  │  │ 3. Durable Growth   — Here in 10 years? │  │  ║
+  ║  │  └─────────────────────────────────────────┘  │  ║
+  ║  │                                               │  ║
+  ║  │  Pattern Match: "This looks like {Co, Year}"  │  ║
+  ║  │    1. ___  2. ___  3. ___                     │  ║
+  ║  │  Key difference: ___                          │  ║
+  ║  │                                               │  ║
+  ║  │  Verdict: Fund / Strong Maybe / Pass          │  ║
+  ║  └───────────────────┬───────────────────────────┘  ║
+  ║                      │                              ║
+  ║                      ▼                              ║
+  ║  ┌─────────── BOARDROOM ────────────────────────┐  ║
+  ║  │                                               │  ║
+  ║  │  FINAL CONSENSUS                              │  ║
+  ║  │  ┌────────────┬──────────┬────────────┐       │  ║
+  ║  │  │ Role       │ Verdict  │ Confidence │       │  ║
+  ║  │  ├────────────┼──────────┼────────────┤       │  ║
+  ║  │  │ Market     │ Support  │     78     │       │  ║
+  ║  │  │ Product    │ Neutral  │     65     │       │  ║
+  ║  │  │ Growth     │ Support  │     72     │       │  ║
+  ║  │  │ Risk       │ Against  │     81     │       │  ║
+  ║  │  │ MP         │ Fund     │     74     │       │  ║
+  ║  │  └────────────┴──────────┴────────────┘       │  ║
+  ║  │                                               │  ║
+  ║  │  Score: XX/100                                │  ║
+  ║  │  One-Line Verdict: "..."                      │  ║
+  ║  └───────────────────┬───────────────────────────┘  ║
+  ║                      │                              ║
+  ║                      ▼                              ║
+  ║  ┌─────────── GAP ANALYSIS ─────────────────────┐  ║
+  ║  │                                               │  ║
+  ║  │  What's Working — What's Missing              │  ║
+  ║  │  Core Strategic Question                      │  ║
+  ║  │  30-Day Challenge                             │  ║
+  ║  │  Score Movement: XX → XX/100                  │  ║
+  ║  └───────────────────┬───────────────────────────┘  ║
+  ║                      │                              ║
+  ╚══════════════════════╪══════════════════════════════╝
+                         │
+                         ▼
+            ┌─── DYNAMIC HOOK ─────────────┐
+            │                              │
+            │  Query Bloom Protocol API    │
+            │            │                 │
+            │     ┌──────┼──────┐          │
+            │     ▼      ▼      ▼          │
+            │   Found   New    No ID       │
+            │   w/evals first   yet        │
+            │     │      │      │          │
+            │     ▼      ▼      ▼          │
+            │  Compare  Be 1st Create      │
+            │  scores   eval   identity    │
+            │     └──────┼──────┘          │
+            │            ▼                 │
+            │     → Raise tribe ←          │
+            └──────────────────────────────┘
 ```
 
 ## What It Does
