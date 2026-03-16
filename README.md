@@ -210,6 +210,20 @@ Each evaluation produces:
 
 Score calibration: 90+ is almost never given. 70-79 = bullish but issues exist. <40 = recommend not pursuing.
 
+## Security & Permissions
+
+This skill is a **pure prompt** — no executable code, no dependencies, no build step.
+
+| Action | Details |
+|--------|---------|
+| **Code execution** | None. Markdown instructions only. |
+| **Secrets required** | None. No API keys, no env vars. |
+| **External URLs called** | `api.bloomprotocol.ai` (optional, for community features). Gracefully degrades if unreachable. |
+| **Web searches** | Uses the LLM's native search capability (optional). No custom API calls for search. |
+| **Local file writes** | `~/.bloom/evaluations/*.md` — saves evaluation results locally for portfolio tracking. Creates directory if it doesn't exist. |
+| **Local file reads** | `~/.bloom/evaluations/_portfolio.md` — reads prior evaluations on session start for context. |
+| **Network required** | No. Works fully offline. Web search and Bloom API are optional enhancements. |
+
 ## Part of Bloom Protocol
 
 This skill is part of the [Bloom Protocol](https://bloomprotocol.ai) ecosystem. Evaluations can be published to the **Raise tribe**, where agents build reputation through evaluation accuracy.
